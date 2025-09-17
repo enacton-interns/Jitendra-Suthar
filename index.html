@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A simple coffee shop website" />
+    <title>Coffe shop Website</title>
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
+    <!-- Google Font Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="./css/global.css" />
+  </head>
+
+  <body>
+    <!-- Navabr Section -->
+    <header class="navbar-section" id="header">
+      <div class="container">
+        <div class="navbar-wrapper">
+          <!-- Navbar Logo -->
+          <a href="./index.html" class="navbar-logo-wrapper">
+            <img
+              src="./assets/images/logo.webp"
+              alt="Website Logo"
+              loading="lazy"
+              class="navbar-logo-image" />
+          </a>
+
+          <!-- Navabr Links -->
+          <nav>
+            <ul class="navbar-nav" id="nav-links">
+              <li class="nav-item">
+                <a href="/" class="nav-links">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#topproducts" class="nav-links">Top Products</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#menu" class="nav-links">Our Menu</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#galley" class="nav-links">Gallery</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#faq" class="nav-links">FAQ</a>
+              </li>
+
+              <li class="btn btn-primary nav-button">
+                <a href="#contact-form" class="nav-links">Conact us </a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Menu open and close icons -->
+          <div class="menu-icon">
+            <button id="openMenu" class="header-menu-buttons">
+              <i class="icon fa-solid fa-bars"></i>
+            </button>
+            <button id="closeMenu" class="hidden header-menu-buttons">
+              <i class="icon fas fa-window-close"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section  -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-wrapper">
+          <!-- Hero Section Contect -->
+          <div class="hero-content">
+            <h1 class="hero-content-title">
+              Brewed to Perfection, Served with Passion.
+            </h1>
+            <p class="hero-content-description">
+              Start your day right with our handcrafted coffee, made from the
+              finest beans and served in a space made for comfort and
+              connection.
+            </p>
+            <a href="#menu" class="btn btn-primary">
+              <img
+                src="./assets/images/menu-icon.png"
+                alt="Menu Icon"
+                loading="lazy"
+                height="25"
+                width="25" />
+              View Menu
+            </a>
+          </div>
+
+          <!-- Coffee Image  -->
+          <div class="hero-image-wrapper">
+            <img
+              src="./assets/images/coffee.png"
+              alt="coffe image"
+              loading="lazy"
+              class="hero-img" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Products Section -->
+    <section class="section" id="topproducts">
+      <div class="container">
+        <div class="top-product-wrapper">
+          <!-- Section Title and Description -->
+          <div class="section-head">
+            <h2 class="section-title">Top Rated Coffees</h2>
+            <p class="section-description">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab eos
+              quae delectus. Esse hic iure sit sequi voluptas vel, adipisci
+              laudantium quod doloribus, repellat cum amet! Molestias odio iste
+              perferendis.
+            </p>
+          </div>
+          <!-- Product Slider -->
+          <div class="section-body">
+            <div class="product-wrapper">
+              <!-- Slider Left Button -->
+              <button
+                class="btn btn-primary slider-arrows left"
+                id="slide-left">
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+
+              <!-- Slider Cards Wrapper -->
+              <div class="slider-track" id="slider-track">
+                <!-- Slider Product Items -->
+
+                <div class="slider-card-wrapper">
+                  <div class="slider-card">
+                    <div class="card-img-wrapper">
+                      <img
+                        class="slider-card-img"
+                        src="https://www.allrecipes.com/thmb/chsZz0jqIHWYz39ViZR-9k_BkkE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8624835-how-to-make-a-cappuccino-beauty-4x3-0301-13d55eaad60b42058f24369c292d4ccb.jpg"
+                        loading="lazy"
+                        alt="Vanilla Drift" />
+                    </div>
+                    <div class="card-content">
+                      <div class="card-content-top">
+                        <h3 class="card-title">Vanilla Drift</h3>
+                        <p class="card-description">
+                          Smooth medium roast infused with natural vanilla bean,
+                          delivering a sweet and mellow cup.
+                        </p>
+                      </div>
+                      <span class="card-content-bottom"
+                        >4.2 <i class="fa-solid fa-star"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider-card-wrapper">
+                  <div class="slider-card">
+                    <div class="card-img-wrapper">
+                      <img
+                        class="slider-card-img"
+                        src="https://media.cnn.com/api/v1/images/stellar/prod/150929101049-black-coffee-stock.jpg?q=w_3000,h_3074,x_0,y_0,c_fill"
+                        loading="lazy"
+                        alt="Midnight Roast" />
+                    </div>
+                    <div class="card-content">
+                      <div class="card-content-top">
+                        <h3 class="card-title">Midnight Roast</h3>
+                        <p class="card-description">
+                          A bold, dark roast with notes of bittersweet chocolate
+                          and a smoky finish.
+                        </p>
+                      </div>
+                      <span class="card-content-bottom"
+                        >4.6<i class="fa-solid fa-star"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider-card-wrapper">
+                  <div class="slider-card">
+                    <div class="card-img-wrapper">
+                      <img
+                        class="slider-card-img"
+                        src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/flat-white-3402c4f.jpg?quality=90&resize=500,454"
+                        loading="lazy"
+                        alt="Caramel Mist" />
+                    </div>
+                    <div class="card-content">
+                      <div class="card-content-top">
+                        <h3 class="card-title">Caramel Mist</h3>
+                        <p class="card-description">
+                          Light roast with creamy caramel undertones and a silky
+                          texture that melts on the tongue.
+                        </p>
+                      </div>
+                      <span class="card-content-bottom"
+                        >4.4<i class="fa-solid fa-star"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider-card-wrapper">
+                  <div class="slider-card">
+                    <div class="card-img-wrapper">
+                      <img
+                        class="slider-card-img"
+                        src="https://i.pinimg.com/1200x/fa/95/63/fa956306477e1be8b2974999609b6652.jpg"
+                        loading="lazy"
+                        alt="Highland Bloom" />
+                    </div>
+                    <div class="card-content">
+                      <div class="card-content-top">
+                        <h3 class="card-title">Highland Bloom</h3>
+                        <p class="card-description">
+                          Single-origin Ethiopian coffee with floral aromas,
+                          citrus brightness, and a tea-like body.
+                        </p>
+                      </div>
+                      <span class="card-content-bottom"
+                        >4.7 <i class="fa-solid fa-star"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider-card-wrapper">
+                  <div class="slider-card">
+                    <div class="card-img-wrapper">
+                      <img
+                        class="slider-card-img"
+                        src="https://insanelygoodrecipes.com/wp-content/uploads/2023/06/Espresso-in-Shot-Glass-1024x1024.jpg"
+                        loading="lazy"
+                        alt="Mocha Ember" />
+                    </div>
+
+                    <div class="card-content">
+                      <div class="card-content-top">
+                        <h3 class="card-title">Mocha Ember</h3>
+                        <p class="card-description">
+                          Rich espresso blend with deep chocolate notes and a
+                          touch of spice for a warming experience.
+                        </p>
+                      </div>
+                      <span class="card-content-bottom"
+                        >4.3<i class="fa-solid fa-star"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider-card-wrapper">
+                  <div class="slider-card">
+                    <div class="card-img-wrapper">
+                      <img
+                        class="slider-card-img"
+                        src="https://www.foodandwine.com/thmb/CCe2JUHfjCQ44L0YTbCu97ukUzA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Partners-Latte-FT-BLOG0523-09569880de524fe487831d95184495cc.jpg"
+                        loading="lazy"
+                        alt="Coconut Grove" />
+                    </div>
+                    <div class="card-content">
+                      <div class="card-content-top">
+                        <h3 class="card-title">Coconut Grove</h3>
+                        <p class="card-description">
+                          Tropical twist on your morning cup—light roast blended
+                          with toasted coconut flavor.
+                        </p>
+                      </div>
+                      <span class="card-content-bottom"
+                        >4.1<i class="fa-solid fa-star"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slider Right Button -->
+              <button
+                class="btn btn-primary slider-arrows right"
+                id="slide-right">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section" id="menu">
+      <div class="container">
+        <div class="menu-wrapper">
+          <!-- Menu Section Title -->
+          <div class="section-head">
+            <h2 class="section-title">Our Special coffee</h2>
+          </div>
+
+          <!-- Menu Product Cards Wrapper -->
+          <div class="section-body">
+            <div class="menu-product-wrapper">
+              <!-- Menu Product Cards  -->
+              <div class="menu-product-card">
+                <div class="product-image-wrapper">
+                  <img
+                    class="product-image"
+                    src="./assets/images/lungo-coffee-drink.webp"
+                    loading="lazy"
+                    alt="Coffee Image" />
+                </div>
+
+                <div class="card-content">
+                  <div class="card-content-top">
+                    <h3 class="card-title">Lungo Coffee</h3>
+                    <p class="card-description">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Doloribus libero odit asperiores officiis maiores quidem
+                      aut et voluptatibus.
+                    </p>
+                  </div>
+
+                  <div class="card-bottom">
+                    <span class="menu-item-price"> Rs. 299 </span>
+                    <a class="btn btn-primary"> Order Now </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="menu-product-card">
+                <div class="product-image-wrapper">
+                  <img
+                    class="product-image"
+                    src="./assets/images/dalogna-coffee-drink.png"
+                    loading="lazy"
+                    alt="Coffee Image" />
+                </div>
+
+                <div class="card-content">
+                  <div class="card-content-top">
+                    <h3 class="card-title">Dalgona Coffee</h3>
+                    <p class="card-description">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Doloribus libero odit asperiores officiis maiores quidem
+                      aut et voluptatibus.
+                    </p>
+                  </div>
+
+                  <div class="card-bottom">
+                    <span class="menu-item-price"> Rs. 199 </span>
+                    <a class="btn btn-primary"> Order Now </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="menu-product-card">
+                <div class="product-image-wrapper">
+                  <img
+                    class="product-image"
+                    src="./assets/images/iced-coffee-drink.webp"
+                    loading="lazy"
+                    alt="Coffee Image" />
+                </div>
+
+                <div class="card-content">
+                  <div class="card-content-top">
+                    <h3 class="card-title">Iced Coffee</h3>
+                    <p class="card-description">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Doloribus libero odit asperiores officiis maiores quidem
+                      aut et voluptatibus.
+                    </p>
+                  </div>
+
+                  <div class="card-bottom">
+                    <span class="menu-item-price"> Rs. 159 </span>
+                    <a class="btn btn-primary"> Order Now </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="menu-product-card">
+                <div class="product-image-wrapper">
+                  <img
+                    class="product-image"
+                    src="./assets/images/filter-coffee-drink.png"
+                    loading="lazy"
+                    alt="Coffee Image" />
+                </div>
+
+                <div class="card-content">
+                  <div class="card-content-top">
+                    <h3 class="card-title">Filter Coffee</h3>
+                    <p class="card-description">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Doloribus libero odit asperiores officiis maiores quidem
+                      aut et voluptatibus.
+                    </p>
+                  </div>
+
+                  <div class="card-bottom">
+                    <span class="menu-item-price"> Rs. 159 </span>
+                    <a class="btn btn-primary"> Order Now </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="menu-product-card">
+                <div class="product-image-wrapper">
+                  <img
+                    class="product-image"
+                    src="./assets/images/red-eye-coffee-drink.png"
+                    loading="lazy"
+                    alt="Coffee Image" />
+                </div>
+
+                <div class="card-content">
+                  <div class="card-content-top">
+                    <h3 class="card-title">RedEye Coffee</h3>
+                    <p class="card-description">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Doloribus libero odit asperiores officiis maiores quidem
+                      aut et voluptatibus.
+                    </p>
+                  </div>
+
+                  <div class="card-bottom">
+                    <span class="menu-item-price"> Rs. 159 </span>
+                    <a class="btn btn-primary"> Order Now </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="menu-product-card">
+                <div class="product-image-wrapper">
+                  <img
+                    class="product-image"
+                    src="./assets/images/latte-coffee-drink.webp"
+                    loading="lazy"
+                    alt="Coffee Image" />
+                </div>
+
+                <div class="card-content">
+                  <div class="card-content-top">
+                    <h3 class="card-title">Latte Coffee</h3>
+                    <p class="card-description">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Doloribus libero odit asperiores officiis maiores quidem
+                      aut et voluptatibus.
+                    </p>
+                  </div>
+
+                  <div class="card-bottom">
+                    <span class="menu-item-price"> Rs. 299 </span>
+                    <a class="btn btn-primary"> Order Now </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="galley">
+      <div class="container">
+        <!-- Gallery Wrapper -->
+        <div class="gallery-wrapper">
+          <!-- Section Head -->
+          <div class="section-head">
+            <h2 class="section-title">Image Gallery with Filter</h2>
+          </div>
+
+          <!-- Section Body -->
+          <div class="section-body">
+            <!-- Filter Button Group -->
+            <div class="filter-btn-group">
+              <!-- Filter Buttons -->
+              <button class="btn btn-primary active" data-category="all">
+                All
+              </button>
+              <button class="btn btn-primary" data-category="latte">
+                Latte
+              </button>
+              <button class="btn btn-primary" data-category="flatwhite">
+                Flat white
+              </button>
+              <button class="btn btn-primary" data-category="mocha">
+                Mocha
+              </button>
+            </div>
+            <!-- Gallery Posts Wrapper -->
+            <div class="gallery-posts-wrapper">
+              <div class="gallery-image-wrapper" data-category="latte">
+                <img
+                  class="gallery-product-image"
+                  src="https://images.pexels.com/photos/33744343/pexels-photo-33744343.jpeg"
+                  loading="lazy"
+                  alt="" />
+                <span class="gallery-image-title">Latte Coffee</span>
+              </div>
+              <div class="gallery-image-wrapper" data-category="latte">
+                <img
+                  class="gallery-product-image"
+                  src="https://images.pexels.com/photos/33669199/pexels-photo-33669199.jpeg"
+                  loading="lazy"
+                  alt="" />
+                <span class="gallery-image-title">Latte Coffee</span>
+              </div>
+              <div class="gallery-image-wrapper" data-category="latte">
+                <img
+                  class="gallery-product-image"
+                  src="https://images.pexels.com/photos/33687985/pexels-photo-33687985.jpeg"
+                  loading="lazy"
+                  alt="" />
+                <span class="gallery-image-title">Latte Coffee</span>
+              </div>
+              <div class="gallery-image-wrapper" data-category="latte">
+                <img
+                  class="gallery-product-image"
+                  src="https://images.pexels.com/photos/33722451/pexels-photo-33722451.jpeg"
+                  loading="lazy"
+                  alt="" />
+                <span class="gallery-image-title">Latte Coffee</span>
+              </div>
+              <div class="gallery-image-wrapper" data-category="flatwhite">
+                <img
+                  class="gallery-product-image"
+                  src="https://images.pexels.com/photos/33715029/pexels-photo-33715029.jpeg"
+                  loading="lazy"
+                  alt="" />
+                <span class="gallery-image-title">Flate White Coffee</span>
+              </div>
+              <div class="gallery-image-wrapper" data-category="flatwhite">
+                <img
+                  class="gallery-product-image"
+                  src="https://images.pexels.com/photos/6612623/pexels-photo-6612623.jpeg"
+                  loading="lazy"
+                  alt="" />
+                <span class="gallery-image-title">Flate White Coffee</span>
+              </div>
+              <div class="gallery-image-wrapper" data-category="mocha">
+                <img
+                  class="gallery-product-image"
+                  src="https://images.pexels.com/photos/33736861/pexels-photo-33736861.jpeg"
+                  loading="lazy"
+                  alt="" />
+                <span class="gallery-image-title">Macha Coffe</span>
+              </div>
+              <div class="gallery-image-wrapper" data-category="mocha">
+                <img
+                  class="gallery-product-image"
+                  src="https://images.pexels.com/photos/8004631/pexels-photo-8004631.jpeg"
+                  loading="lazy"
+                  alt="" />
+                <span class="gallery-image-title">Mocha Coffee</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+      <div class="container">
+        <!-- FAQ Wrapper -->
+        <div class="faq-wrapper">
+          <!-- Section Head -->
+          <div class="section-head">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+          </div>
+
+          <!-- Section Body -->
+          <div class="section-body">
+            <!-- FAQ Each Question And Answer -->
+            <div class="faq-item">
+              <!-- FAQ Question  -->
+              <div class="faq-question">
+                Do you have free Wi-Fi? <i class="fa-solid fa-caret-down"></i>
+              </div>
+              <!-- FAQ Answer -->
+              <div class="faq-answer">
+                <p class="answer">
+                  Yes, complimentary Wi-Fi is available for all customers.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                Do you accept mobile payments or gift cards?
+                <i class="fa-solid fa-caret-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p class="answer">
+                  Yes, we accept all major credit cards, as well as mobile
+                  payment options like Apple Pay and Google Pay. We also offer
+                  digital and physical gift cards, which you can purchase
+                  in-store.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                Do you offer decaf options?
+                <i class="fa-solid fa-caret-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p class="answer">
+                  Yes, we have decaf options for all our espresso-based drinks
+                  and also offer a decaf drip coffee.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                Do you have a customer loyalty or rewards program?<i
+                  class="fa-solid fa-caret-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p class="answer">
+                  Yes, there is a rewards program where points are earned with
+                  every purchase, which can be redeemed for free drinks and
+                  other perks. Sign-up is available at the counter or through
+                  the mobile app.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What kind of coffee beans do you use?
+                <i class="fa-solid fa-caret-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p class="answer">
+                  We use sustainably sourced, locally roasted beans from [Name
+                  of Roaster], which allows us to provide the freshest and
+                  highest-quality coffee possible.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Us  -->
+    <section class="section" id="contact-form">
+      <div class="container">
+        <!-- Contact Wrapper -->
+        <div class="contact-wrapper">
+          <!-- Contact Form -->
+          <div class="contact-form">
+            <h2 class="section-title">Connect With Us</h2>
+            <form id="form" class="form">
+              <div class="form-field">
+                <label class="form-field-label" for="name"> Full Name </label>
+                <input class="form-input" type="text" id="name" name="name" />
+                <span class="error name-error"></span>
+              </div>
+              <div class="form-field">
+                <label class="form-field-label" for="name"> Email </label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="email"
+                  name="email" />
+                <span class="error email-error"></span>
+              </div>
+              <div class="form-field">
+                <label class="form-field-label" for="name"> Message </label>
+                <textarea
+                  class="form-textarea"
+                  type="text"
+                  id="message"
+                  name="message"></textarea>
+                <span class="error message-error"></span>
+              </div>
+              <button id="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+
+          <!-- Google Map -->
+          <div class="google-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.1277912242576!2d72.75733507587472!3d21.14731208369485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04d8d96d2b733%3A0x1a5232e28e4094e4!2sEnactOn%20Technologies%20Private%20Limited!5e0!3m2!1sen!2sin!4v1756901955868!5m2!1sen!2sin"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              class="google-map-iframe"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer  -->
+    <footer class="footer-section">
+      <div class="container">
+        <div class="footer-wrapper">
+          <p class="copy-right-text">
+            &copy; 2025 Coffee Website. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
