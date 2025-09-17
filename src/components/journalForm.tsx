@@ -14,7 +14,7 @@ const availableTags: string[] = [
   "ideas",
 ];
 
-const journalForm: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+const journalForm: React.FC<ModalProps> = ({ isOpen, onClose }: any) => {
   if (!isOpen) return null;
 
   // from data state
@@ -23,8 +23,8 @@ const journalForm: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const handleTagChange = (tag: string) => {
-    setSelectedTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    setSelectedTags((prev: any) =>
+      prev.includes(tag) ? prev.filter((t: any) => t !== tag) : [...prev, tag]
     );
   };
 
