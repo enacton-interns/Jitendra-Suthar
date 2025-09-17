@@ -1,15 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TrackerForm, RecordList, Calender, Chart } from "../components";
 
-const moodTrackerForm = () => {
+const MoodTrackerForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [moodData, setMoodData] = useState<any>([]);
+
+  // Function to load data from local storage
+  const loadMoodData = () => {
+    const moodRecords: any = JSON.parse(
+      localStorage.getItem("moodEntries") || "[]"
+    );
+    setMoodData(moodRecords);
+  };
+
+  useEffect(() => {
+    loadMoodData();
+  }, []);
 
   const handleOpen = () => setIsModalOpen(true);
-  const handleClose = () => setIsModalOpen(false);
+
+  // New function to close the modal and refresh data
+  const handleCloseAndRefresh = () => {
+    setIsModalOpen(false);
+    loadMoodData();
+  };
+
+  const handleDelete = (id: string) => {
+    const updatedMoodData = moodData.filter((item: any) => item.id !== id);
+    localStorage.setItem("moodEntries", JSON.stringify(updatedMoodData));
+    setMoodData(updatedMoodData); // Update state to trigger re-render
+  };
+
   return (
     <section className="py-5">
       <div className="container mx-auto px-3">
-        {/* wrapper */}
         <div className="space-y-5">
           <div className="flex justify-between items-center mb-8">
             <h3 className="sm:text-md md:text-xl font-semibold text-gray-800">
@@ -23,17 +47,18 @@ const moodTrackerForm = () => {
             </button>
           </div>
           <div className="flex flex-col gap-5 lg:flex-row justify-between w-full">
-            <RecordList />
-            <Calender />
+            <RecordList moodRecords={moodData} handleDelete={handleDelete} />
+            <Calender moodRecords={moodData} />
           </div>
           <div className="w-full lg:w-1/2">
-            <Chart />
+            <Chart moodRecords={moodData} />
           </div>
         </div>
-        <TrackerForm isOpen={isModalOpen} onClose={handleClose} />
+        {/* Pass the new close handler to the modal */}
+        <TrackerForm isOpen={isModalOpen} onClose={handleCloseAndRefresh} />
       </div>
     </section>
   );
 };
 
-export default moodTrackerForm;
+export default MoodTrackerForm;

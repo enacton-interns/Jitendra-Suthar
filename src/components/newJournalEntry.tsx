@@ -1,14 +1,32 @@
 import { JournalList } from "../components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import JournalForm from "./journalForm";
-
-const dailyJurnal = JSON.parse(localStorage.getItem("allJournal") || "[]");
 
 const NewJournalEntry = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [journalData, setJournalData] = useState([]);
 
+  // Function to load data from local storage
+  const JournalRecords = () => {
+    const dailyJurnal = JSON.parse(localStorage.getItem("allJournal") || "[]");
+    setJournalData(dailyJurnal);
+  };
+  useEffect(() => {
+    JournalRecords();
+  }, []);
+
+  const handleClose = () => {
+    setIsModalOpen(false);
+    JournalRecords();
+  };
   const handleOpen = () => setIsModalOpen(true);
-  const handleClose = () => setIsModalOpen(false);
+
+  // deleting a journal base on i'd
+  const handleDelete = (id: any) => {
+    const newJournal = journalData.filter((item: any) => item.id !== id);
+    localStorage.setItem("allJournal", JSON.stringify(newJournal));
+    JournalRecords();
+  };
 
   return (
     <section className="py-5 relative">
@@ -29,7 +47,11 @@ const NewJournalEntry = () => {
 
           {/* List of All Journal */}
           <div className="w-full bg-white rounded-md shadow-lg p-5 border-1 border-gray-200">
-            <JournalList journals={dailyJurnal} deleteButton={true} />
+            <JournalList
+              journals={journalData}
+              deleteButton={true}
+              deleteFunction={handleDelete}
+            />
           </div>
         </div>
       </div>

@@ -1,4 +1,9 @@
-const journalTable = ({ journals, limit, deleteButton }: any) => {
+const journalTable = ({
+  journals,
+  limit,
+  deleteButton,
+  deleteFunction,
+}: any) => {
   // counting fetched documents
   let count = 0;
 
@@ -9,13 +14,6 @@ const journalTable = ({ journals, limit, deleteButton }: any) => {
     month: "short",
     day: "numeric",
   });
-
-  // deleting a journal base on i'd
-  const handleDelete = (id: any) => {
-    const newJournal = journals.filter((item: any) => item.id !== id);
-    localStorage.setItem("allJournal", JSON.stringify(newJournal));
-    window.location.reload();
-  };
 
   // limited documents display
   const renderJournals =
@@ -46,7 +44,7 @@ const journalTable = ({ journals, limit, deleteButton }: any) => {
                 {deleteButton && (
                   <button
                     className="cursor-pointer hover:bg-red-50 p-2 rounded-md"
-                    onClick={() => handleDelete(item.id)}>
+                    onClick={() => deleteFunction(item.id)}>
                     <i className="fa-solid fa-trash text-red-400"></i>
                   </button>
                 )}

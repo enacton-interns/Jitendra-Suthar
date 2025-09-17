@@ -21,36 +21,34 @@ ChartJS.register(
   Legend
 );
 
-// Sample mood data
-const moodData = JSON.parse(localStorage.getItem("moodEntries") || "[]");
+const MoodBarChart: React.FC = ({ moodRecords }: any) => {
+  // Sample mood data
 
-// Count mood occurrences
-const countMoods = (data: typeof moodData) => {
-  const counts: Record<string, number> = {};
-  data.forEach((item: any) => {
-    counts[item.moodType] = (counts[item.moodType] || 0) + 1;
-  });
-  return counts;
-};
+  // Count mood occurrences
+  const countMoods = (data: typeof moodRecords) => {
+    const counts: Record<string, number> = {};
+    data.forEach((item: any) => {
+      counts[item.moodType] = (counts[item.moodType] || 0) + 1;
+    });
+    return counts;
+  };
 
-const moodCounts = countMoods(moodData);
-const labels = Object.keys(moodCounts);
-const data = Object.values(moodCounts);
+  const moodCounts = countMoods(moodRecords);
+  const labels = Object.keys(moodCounts);
+  const data = Object.values(moodCounts);
 
-// Define chart data
-const chartData = {
-  labels: labels,
-  datasets: [
-    {
-      label: "Mood Frequency",
-      data: data,
-      backgroundColor: ["#4bc0c0", "#ffcd56", "#ff6384", "#A19EFF"],
-      borderRadius: 10,
-    },
-  ],
-};
-
-const MoodBarChart: React.FC = () => {
+  // Define chart data
+  const chartData = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Mood Frequency",
+        data: data,
+        backgroundColor: ["#4bc0c0", "#ffcd56", "#ff6384", "#A19EFF"],
+        borderRadius: 10,
+      },
+    ],
+  };
   return (
     <div className="bg-white shadow-md rounded-md h-100 w-full">
       <Bar data={chartData} />

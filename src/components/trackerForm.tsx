@@ -78,7 +78,7 @@ const MoodTrackerForm: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     );
     const updatedMoodEntries = [...existingMoodEntries, formData];
     localStorage.setItem("moodEntries", JSON.stringify(updatedMoodEntries));
-    window.location.reload();
+    onClose();
 
     // Reset form
     setMoodType("");

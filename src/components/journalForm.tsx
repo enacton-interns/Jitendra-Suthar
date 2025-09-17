@@ -63,7 +63,7 @@ const journalForm: React.FC<ModalProps> = ({ isOpen, onClose }: any) => {
     );
     const updatedMoodEntries = [...existingJournal, formData];
     localStorage.setItem("allJournal", JSON.stringify(updatedMoodEntries));
-    window.location.reload();
+    onClose();
 
     setTitle("");
     setMessage("");

@@ -1,15 +1,8 @@
-const moodData: any = JSON.parse(localStorage.getItem("moodEntries") || "[]");
-
-const recordList = () => {
-  const handleDelete = (id: string) => {
-    const updatedMoodData = moodData.filter((item: any) => item.id !== id);
-    localStorage.setItem("moodEntries", JSON.stringify(updatedMoodData));
-    window.location.reload();
-  };
+const recordList = ({ moodRecords, handleDelete }: any) => {
   return (
     <div className="lg:h-[500px] w-full lg:w-1/2 px-2 py-4 md:p-5 space-y-3 rounded-md bg-white shadow-md overflow-auto scroll-smooth">
-      {moodData.length > 0 ? (
-        moodData.map((item: any) => {
+      {moodRecords.length > 0 ? (
+        moodRecords.map((item: any) => {
           return (
             <div
               className="flex items-left md:item-center flex-col md:flex-row space-x-4 py-3 px-2 border-1 rounded-md border-gray-200 "
