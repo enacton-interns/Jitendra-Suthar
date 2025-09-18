@@ -2,29 +2,31 @@ import { useEffect, useState } from "react";
 import { TrackerForm, RecordList, Calender, Chart } from "../components";
 
 const MoodTrackerForm = () => {
+  // useState for storing all loaded Data.
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [moodData, setMoodData] = useState<any>([]);
 
   // Function to load data from local storage
   const loadMoodData = () => {
-    const moodRecords: any = JSON.parse(
-      localStorage.getItem("moodEntries") || "[]"
-    );
+    const moodRecords = JSON.parse(localStorage.getItem("moodEntries") || "[]");
     setMoodData(moodRecords);
   };
 
+  // Load data on every mount
   useEffect(() => {
     loadMoodData();
   }, []);
 
+  // Open the Form
   const handleOpen = () => setIsModalOpen(true);
 
-  // New function to close the modal and refresh data
+  // Close the modal and refresh data
   const handleCloseAndRefresh = () => {
     setIsModalOpen(false);
     loadMoodData();
   };
 
+  // Delete Saved Records
   const handleDelete = (id: string) => {
     const updatedMoodData = moodData.filter((item: any) => item.id !== id);
     localStorage.setItem("moodEntries", JSON.stringify(updatedMoodData));

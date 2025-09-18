@@ -9,13 +9,14 @@ const journalTable = ({
 
   // todays date
   const today = new Date();
+  //  Format the Data According to requrement
   const todayString = today.toLocaleDateString("en-US", {
     weekday: "long",
     month: "short",
     day: "numeric",
   });
 
-  // limited documents display
+  // limited documents display when limit is passed on component called
   const renderJournals =
     limit > 0
       ? journals
@@ -39,7 +40,11 @@ const journalTable = ({
                   <p className="capitalize text-md font-semibold ">
                     {item.title}
                   </p>
-                  <p className="text-sm text-gray-500">{item.createdAt}</p>
+                  <time
+                    dateTime={item.createdAt}
+                    className="text-sm text-gray-500">
+                    {item.createdAt}
+                  </time>
                 </div>
                 {deleteButton && (
                   <button
@@ -51,7 +56,7 @@ const journalTable = ({
               </div>
 
               {/* middle message */}
-              <p className="text-sm md:text-md text-gray-700 mb-3 mr-0 text-justify">
+              <p className="text-sm md:text-md text-gray-700 mb-3 mr-0 text-wrap ">
                 {item.message}
               </p>
 

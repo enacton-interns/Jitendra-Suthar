@@ -69,6 +69,8 @@ const journalForm: React.FC<ModalProps> = ({ isOpen, onClose }: any) => {
     setMessage("");
     setSelectedTags([]);
   };
+
+  console.log(title.length > 5 ? true : false);
   return (
     <>
       {isOpen && (
@@ -78,9 +80,9 @@ const journalForm: React.FC<ModalProps> = ({ isOpen, onClose }: any) => {
               Let's create another journal entry <br /> capture your thoughts.
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-3">
+            <form onSubmit={handleSubmit}>
               {/* Title Field */}
-              <div>
+              <div className="mb-4">
                 <label
                   htmlFor="title"
                   className="block text-sm md:text-md font-medium text-gray-700 mb-1">
@@ -89,8 +91,9 @@ const journalForm: React.FC<ModalProps> = ({ isOpen, onClose }: any) => {
                 <input
                   id="title"
                   type="text"
-                  placeholder="Title your entry"
+                  placeholder="Title your entry ( up to 5 characters )"
                   value={title}
+                  title="Title must be contain at least 5 characters"
                   onChange={(e) => setTitle(e.target.value)}
                   className="w-full p-2 border border-gray-300 rounded-md shadow-sm outline-0 placeholder:text-sm md:placeholder:text-md"
                   required
@@ -98,7 +101,7 @@ const journalForm: React.FC<ModalProps> = ({ isOpen, onClose }: any) => {
               </div>
 
               {/* Message Field */}
-              <div>
+              <div className="mb-4">
                 <label
                   htmlFor="message"
                   className="block text-sm font-medium text-gray-700 mb-1">
@@ -106,19 +109,20 @@ const journalForm: React.FC<ModalProps> = ({ isOpen, onClose }: any) => {
                 </label>
                 <textarea
                   id="message"
-                  placeholder="Describe your day, an idea, or something you want to remember."
+                  placeholder="Describe your day, an idea, or something you want to remember. ( up to 5 characters )"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   rows={5}
+                  title="Message must be contain at least 5 characters"
                   className="w-full p-2 border border-gray-300 rounded-md shadow-sm resize-none outline-0 placeholder:text-sm md:placeholder:text-md"
                   required
                 />
               </div>
 
               {/* Tags Field */}
-              <div className="mb-3">
+              <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Select Tags
+                  Select Tags (optional)
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   {availableTags.map((tag) => (
@@ -142,9 +146,9 @@ const journalForm: React.FC<ModalProps> = ({ isOpen, onClose }: any) => {
               <div className="text-center">
                 <button
                   type="submit"
-                  disabled={!title}
+                  disabled={!(title.length >= 5 && message.length >= 5)}
                   className={`w-full py-3 px-4 font-semibold rounded-md transition duration-200 ${
-                    title
+                    title.length >= 5 && message.length >= 5
                       ? "bg-indigo-600 hover:bg-indigo-700 text-white"
                       : "bg-gray-200 text-gray-500 cursor-not-allowed"
                   }`}>

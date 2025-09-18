@@ -26,9 +26,9 @@ const getTimeOfDayTag = (hour: number): string => {
 const MoodTrackerForm: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
-  const [timeOfDay, setTimeOfDay] = useState("");
-  const [moodType, setMoodType] = useState("");
-  const [moodNotes, setMoodNotes] = useState("");
+  const [timeOfDay, setTimeOfDay] = useState(""); // for storing the week day
+  const [moodType, setMoodType] = useState(""); // handling user selected mood Type
+  const [moodNotes, setMoodNotes] = useState(""); // handle user written mood Notes+
 
   // Set time of day automatically when component mounts or when modal opens
   useEffect(() => {
@@ -39,6 +39,7 @@ const MoodTrackerForm: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     }
   }, [isOpen]);
 
+  // Handle Form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -54,6 +55,7 @@ const MoodTrackerForm: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       day: "numeric", // Day of the month (e.g., "15")
     };
 
+    // format the date
     const formattedDate = new Intl.DateTimeFormat("en-US", DateFormat).format(
       date
     );
@@ -63,6 +65,7 @@ const MoodTrackerForm: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       .toString(36)
       .substr(2, 9)}`;
 
+    // store form data in a object
     const formData = {
       id: uniqueId,
       timeOfDay,
@@ -76,6 +79,7 @@ const MoodTrackerForm: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     const existingMoodEntries = JSON.parse(
       localStorage.getItem("moodEntries") || "[]"
     );
+    // Update in stored array
     const updatedMoodEntries = [...existingMoodEntries, formData];
     localStorage.setItem("moodEntries", JSON.stringify(updatedMoodEntries));
     onClose();

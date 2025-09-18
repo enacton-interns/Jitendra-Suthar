@@ -10,27 +10,39 @@ interface dailyQuote {
 }
 
 const quote = () => {
+  // useState for handling data and states (true or false)
   const [quote, setQuote] = useState<dailyQuote>();
-  const [loading, setLoading] = useState(false);
-  const [isCopy, setIsCopy] = useState(false);
+  const [loading, setLoading] = useState(false); // handling loading state during data load
+  const [isCopy, setIsCopy] = useState(false); // handling copy icon when data copy or not
 
   const fetchQuote = async () => {
     try {
       setLoading(true);
+      // fecthing data from API
       const response = await fetch(
         "https://api.realinspire.live/v1/quotes/random"
       );
 
+      // Turn data into JSON format
       const data = await response.json();
+      // store response JSON data into useState
       setQuote(data[0]);
     } catch (error) {
+      // If failed to Fetch
       console.error("Fetching error:", error);
     } finally {
+      // Always called either failed or succes
       setLoading(false);
       setIsCopy(false);
     }
   };
 
+  // Fetch Quotes on every mount
+  useEffect(() => {
+    fetchQuote();
+  }, []);
+
+  // Copy Inspiration Quotes
   const copyText = async (textToCopy: any) => {
     try {
       await navigator.clipboard.writeText(textToCopy);
@@ -40,9 +52,6 @@ const quote = () => {
     }
   };
 
-  useEffect(() => {
-    fetchQuote();
-  }, []);
   return (
     <section className="py-5">
       <div className="container mx-auto px-3">

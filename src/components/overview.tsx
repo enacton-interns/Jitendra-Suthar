@@ -1,9 +1,26 @@
+import { useEffect, useState } from "react";
 import { JournalList } from "../components";
 
 const overview = () => {
-  const moodData: any = JSON.parse(localStorage.getItem("moodEntries") || "[]");
+  const [moodRecords, setMoodRecords] = useState([]);
+  const [journalData, setJournalData] = useState([]);
 
-  const dailyJurnal = JSON.parse(localStorage.getItem("allJournal") || "[]");
+  // load data from local storage
+  const loadData = () => {
+    const moodData: any = JSON.parse(
+      localStorage.getItem("moodEntries") || "[]"
+    );
+    const dailyJurnal = JSON.parse(localStorage.getItem("allJournal") || "[]");
+    setJournalData(dailyJurnal);
+    setMoodRecords(moodData);
+  };
+
+  console.log(moodRecords);
+
+  // load data on every mount
+  useEffect(() => {
+    loadData();
+  }, []);
 
   const today = new Date();
   const todayString = today.toLocaleDateString("en-US", {
@@ -20,19 +37,16 @@ const overview = () => {
           {/* moods records data */}
           <div className="bg-white rounded-md shadow-lg p-5 border-1 border-gray-200 md:w-[500px]">
             <h3 className="text-md md:text-lg lg:text-xl font-semibold text-gray-800 mb-4">
-              {today.toLocaleDateString("en-US", {
-                weekday: "long",
-              })}{" "}
               Moods Record
             </h3>
             {/* check the mood record array length */}
-            {moodData.length > 0 ? (
+            {moodRecords.length > 0 ? (
               // filter all record for today only
-              moodData.filter(
+              moodRecords.filter(
                 (item: any) => item.createdAt.includes(todayString)
-                // again check the length of filtered records
+                // check the length of filtered records
               ).length > 0 ? (
-                moodData.map((item: any) => (
+                moodRecords.map((item: any) => (
                   <div
                     className="flex flex-col space-y-2 py-2 border-b border-gray-100"
                     key={item.id}>
@@ -44,9 +58,10 @@ const overview = () => {
                         {item.timeOfDay}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-400 text-justify mb-2">
-                      {item.moodNotes}
-                    </p>
+                    <div className="font-light flex justify-between gap-2 text-sm text-gray-400 mb-2">
+                      <time dateTime={item.time}>{item.time}</time>
+                      <time dateTime={item.createdAt}>{item.createdAt}</time>
+                    </div>
                   </div>
                 ))
               ) : (
@@ -66,10 +81,10 @@ const overview = () => {
           {/* daily journal data */}
           <div className="relative w-full bg-white rounded-md shadow-lg p-5 border-1 border-gray-200 ">
             <h3 className="text-md md:text-lg lg:text-xl font-semibold text-gray-800 mb-4">
-              Your latest Journal
+              latest Journal
             </h3>
 
-            <JournalList journals={dailyJurnal} limit={4} />
+            <JournalList journals={journalData} limit={4} />
           </div>
         </div>
       </div>

@@ -22,10 +22,9 @@ ChartJS.register(
 );
 
 const MoodBarChart: React.FC = ({ moodRecords }: any) => {
-  // Sample mood data
-
-  // Count mood occurrences
+  // Count mood occurrences base the mood type frequence
   const countMoods = (data: typeof moodRecords) => {
+    // Storing count in object form like happy: 2
     const counts: Record<string, number> = {};
     data.forEach((item: any) => {
       counts[item.moodType] = (counts[item.moodType] || 0) + 1;
@@ -34,7 +33,9 @@ const MoodBarChart: React.FC = ({ moodRecords }: any) => {
   };
 
   const moodCounts = countMoods(moodRecords);
+  // extracting only keys from the count object
   const labels = Object.keys(moodCounts);
+  // extracting only values from the count object
   const data = Object.values(moodCounts);
 
   // Define chart data
@@ -44,7 +45,7 @@ const MoodBarChart: React.FC = ({ moodRecords }: any) => {
       {
         label: "Mood Frequency",
         data: data,
-        backgroundColor: ["#4bc0c0", "#ffcd56", "#ff6384", "#A19EFF"],
+        backgroundColor: ["#4bc0c0", "#ffcd56", "#ff6384", "#A19EFF"], // Chart colors
         borderRadius: 10,
       },
     ],

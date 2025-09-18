@@ -3,6 +3,7 @@ import { IntroSection, AddJournal } from "../components";
 import JournalSectionBackground from "/assets/images/journal-background.jpg";
 
 const Journal = () => {
+  // updating page title when user navigate
   useEffect(() => {
     document.title = "Journal | Mood Tracker";
   }, []);

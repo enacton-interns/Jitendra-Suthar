@@ -3,29 +3,36 @@ import { useEffect, useState } from "react";
 import JournalForm from "./journalForm";
 
 const NewJournalEntry = () => {
+  // Handling model open and close state (true or false)
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // useState for storing Journal Data
   const [journalData, setJournalData] = useState([]);
 
-  // Function to load data from local storage
+  // load data from local storage
   const JournalRecords = () => {
     const dailyJurnal = JSON.parse(localStorage.getItem("allJournal") || "[]");
     setJournalData(dailyJurnal);
   };
+
+  // load data on every mount
   useEffect(() => {
     JournalRecords();
   }, []);
 
+  // open model form
+  const handleOpen = () => setIsModalOpen(true);
+
+  // closing model and refresh data
   const handleClose = () => {
     setIsModalOpen(false);
     JournalRecords();
   };
-  const handleOpen = () => setIsModalOpen(true);
 
   // deleting a journal base on i'd
   const handleDelete = (id: any) => {
     const newJournal = journalData.filter((item: any) => item.id !== id);
     localStorage.setItem("allJournal", JSON.stringify(newJournal));
-    JournalRecords();
+    JournalRecords(); // re-call to load the update data from localstorage
   };
 
   return (
